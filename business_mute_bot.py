@@ -281,7 +281,7 @@ async def main():
     store = MuteStore(path, int(owner))
     dp = create_dispatcher(int(owner), store)
     async with Bot(token=token) as bot:
-        git push
+        me = await bot.get_me()
         if not me.can_connect_to_business:
             raise SystemExit("Включите Business Mode у бота в @BotFather.")
         log.info("Запуск @%s; owner=%s; JSON=%s", me.username, owner, path)
